@@ -11,15 +11,15 @@ import Cuzdan from './components/Cuzdan.vue'
 
 const router = new VueRouter({
   routes: [
-    {path: '/yonetim', component: Yonetim,
-    children: [
-      {path: '/yonetim/stok', component: Stok},
-      {path: '/yonetim/cuzdan', component: Cuzdan}
-    ]
-  },
-    {path: '/market', component: Market, props: {productList:App.data().productList}},
-    {path: '/sepet', component: Sepet, props: {cartItems:App.data().cartItems}}
-
+    {
+      path: '/yonetim', component: Yonetim,
+      children: [
+        { path: '/yonetim/stok', component: Stok },
+        { path: '/yonetim/cuzdan', component: Cuzdan }
+      ]
+    },
+    { path: '/market', component: Market },
+    { path: '/sepet', component: Sepet }
   ],
   mode: 'history'
 })

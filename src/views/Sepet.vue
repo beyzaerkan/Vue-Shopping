@@ -2,15 +2,15 @@
   <div>
     <h1>SEPET</h1>
     <UrunDetay
-      v-for="product in cartItems"
+      v-for="product in diziler.cartItems"
       :key="product.id"
       :product="product"
     />
     <ul>
-      <li v-for="items in cartItems" :key="items.id">{{ items.title }}</li>
-      <button v-if="cartItems > 0">Sepetten çıkart</button>
+      <li v-for="items in diziler.cartItems" :key="items.id">{{ items.title }}</li>
+      <button v-if="diziler.cartItems > 0">Sepetten çıkart</button>
     </ul>
-    <strong v-if="cartItems == 0">Sepetinizde ürün bulunmamaktadır.</strong>
+    <strong v-if="diziler.cartItems == 0">Sepetinizde ürün bulunmamaktadır.</strong>
     <p>Toplam: ₺{{ odenecekTutar }}</p>
     <button v-if="odenecekTutar > 0">Satın Al</button>
     <button v-else @click="sepetBos">Satın Al</button>
@@ -20,7 +20,7 @@
 import UrunDetay from "../components/UrunDetay.vue";
 export default {
   name: "Sepet",
-  props: ['cartItems'],
+  props: ['diziler'],
   components: {
     UrunDetay,
   },
@@ -32,10 +32,7 @@ export default {
   methods: {
     sepetBos() {
       alert("Satın almak için ürün eklemelisiniz");
-    },
-    ürünEkle(product) {
-      this.cartItems.push(product);
-    },
+    }
   },
 };
 </script>

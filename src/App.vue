@@ -5,7 +5,7 @@
       <li><router-link to="/market">Market </router-link></li>
       <li><router-link to="/sepet">Sepet </router-link></li>
     </nav>
-    <router-view></router-view>
+    <router-view :diziler="{ productList, cartItems }"></router-view>
   </div>
 </template>
 <script>
@@ -33,7 +33,7 @@ export default {
         },
       ],
       total: 0,
-      cartItems: []
+      cartItems: [],
     };
   },
 };
